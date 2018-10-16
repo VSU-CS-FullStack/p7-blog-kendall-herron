@@ -2,20 +2,31 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './index.css';
-import App from './components/app';
 import rootReducer from "./reducers";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Provider } from "react-redux";
+
 import "./index.css";
 
-const store = createStore(
-	rootReducer,
-	{},
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 
-)
+import { BrowserRouter, Route } from 'react-router-dom';
+import PostsIndex from './containers/posts_index';
+
+import ReduxPromise from 'redux-promise';
+
+const store = createStore(rootReducer, {}, composeWithDevTools(applyMiddleware(ReduxPromise)));
+
+
 ReactDOM.render(
 	<Provider store={store}>
-		<App />
-	</Provider>,
+        <BrowserRouter>
+            <div>
+                <Route path="/api/posts" component={PostsIndex} />
+                <Route exact path='/' component={PostsIndex}/>
+            </div>
+        </BrowserRouter>
+   </Provider>,
 	document.getElementById("root")
 );
