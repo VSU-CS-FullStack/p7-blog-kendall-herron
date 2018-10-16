@@ -6,6 +6,7 @@ import rootReducer from "./reducers";
 
 import { Provider } from "react-redux";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css";
 
 import { createStore, applyMiddleware } from "redux";

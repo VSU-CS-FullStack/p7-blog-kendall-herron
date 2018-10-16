@@ -5,7 +5,16 @@ export const CREATE_POST = 'create_post';
 
 export const FETCH_POSTS = 'fetch_posts';
 
-const ROOT_URL = "https://blog-server-kendall-herron.herokuapp.com/api";
+const ROOT_URL = "https://blog-server-kendall-herron.herokuapp.com";
+
+export function fetchPosts(){
+    const request = axios.get(`${ROOT_URL}/posts`);
+
+    return ({
+        type: FETCH_POSTS,
+        payload: request
+    })
+}
 
 export function createPost(values, callback) {
     if (!values.hasReferences || values.hasReferences===false)
@@ -19,13 +28,4 @@ export function createPost(values, callback) {
         type: CREATE_POST,
         payload: request
     };
-}
-
-export function fetchPosts(){
-    const request = axios.get(`${ROOT_URL}/posts`);
-
-    return ({
-        type: FETCH_POSTS,
-        payload: request
-    })
 }
