@@ -1,0 +1,23 @@
+commit 687f8174d3766edf835883994faac1016f121769
+Author: kendallherron <ktherron@valdosta.edu>
+Date:   Tue Oct 16 08:39:28 2018 -0400
+
+    Made action creator to save post
+
+commit f1fc6f43c6780664b08d6b3f947d5965d32c05ff
+Author: kendallherron <ktherron@valdosta.edu>
+Date:   Tue Oct 16 07:23:54 2018 -0400
+
+    Added the rest of the fields
+
+commit e2825ce6ee62b4541202a4bf89d84d85ed0fd9b4
+Author: kendallherron <ktherron@valdosta.edu>
+Date:   Mon Oct 15 23:53:53 2018 -0400
+
+    Map state props in container
+
+commit 42b858cee5dfc97354c58549c4ed19df88c3972e
+Author: kendallherron <ktherron@valdosta.edu>
+Date:   Mon Oct 15 23:33:57 2018 -0400
+
+    created a new react app
