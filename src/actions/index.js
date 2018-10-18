@@ -7,7 +7,23 @@ export const FETCH_POSTS = 'fetch_posts';
 
 export const FETCH_POST = "fetch_post";
 
+export const DELETE_POST = "delete_post";
+
 const ROOT_URL = "https://blog-server-kendall-herron.herokuapp.com/api";
+
+export function createPost(values, callback) {
+    if (!values.hasReferences || values.hasReferences===false)
+        values =  _.omit(values, "references" );
+
+    const request = axios
+        .post(`${ROOT_URL}/posts`, values)
+        .then(() => callback());
+
+    return {
+        type: CREATE_POST,
+        payload: request
+    };
+}
 
 export function fetchPosts(){
     const request = axios.get(`${ROOT_URL}/posts`);
@@ -27,16 +43,13 @@ export function fetchPost(id) {
     };
 }
 
-export function createPost(values, callback) {
-    if (!values.hasReferences || values.hasReferences===false)
-        values =  _.omit(values, "references" );
-
+export function deletePost(id, callback) {
     const request = axios
-        .post(`${ROOT_URL}/posts`, values)
+        .delete(`${ROOT_URL}/posts/${id}`)
         .then(() => callback());
 
     return {
-        type: CREATE_POST,
-        payload: request
+        type: DELETE_POST,
+        payload: id
     };
 }
